@@ -1,3 +1,6 @@
+=====RESULTADOS=======  
+- Los resultados de la ejecucion del ejemplo se encuentran en la carpeta resultados/
+
 =====EJECUCION=======  
 1. Llenar .env copiando de .env.example  
 2. Ejecutar con docker  
