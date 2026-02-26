@@ -1,0 +1,16 @@
+X Plataforma de bienestar Well Track... -> CONTEXTO
+X Agente conversacional que hace 3 preguntas en orden
+	X agent.py con implementacion
+	X agente se debe probar sin api
+	X in-memory context
+	X al concluir el flujo el agente muestra un resumen con datos de usuario y termina session
+X Endpoint POST /chat
+	X Input: { "session_id": "abc123", "message": "texto del usuario" }
+	X Output: : { "response": "texto del agente", "is_final": false, "summary": null }
+	X Cuando el flujo termina, is_final debe ser true y summary debe contener el resumen generado por el 		agente.
+	X Cada session_id debe mantener su propio estado (en memoria RAM es suficiente).	
+- README.md con instrucciones claras para instalar y correr el proyecto localmente.
+- Archivo .env.example con las variables necesarias (ej: OPENAI_API_KEY).	
+- requirements.txt con las dependencias.
+- El proyecto debe correr con un solo comando luego de instalar dependencias.
+- Respuestas HTTP apropiadas ante inputs inesperados.
