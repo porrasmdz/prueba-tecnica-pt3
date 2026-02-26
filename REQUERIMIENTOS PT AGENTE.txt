@@ -9,8 +9,8 @@ X Endpoint POST /chat
 	X Output: : { "response": "texto del agente", "is_final": false, "summary": null }
 	X Cuando el flujo termina, is_final debe ser true y summary debe contener el resumen generado por el 		agente.
 	X Cada session_id debe mantener su propio estado (en memoria RAM es suficiente).	
-- README.md con instrucciones claras para instalar y correr el proyecto localmente.
-- Archivo .env.example con las variables necesarias (ej: OPENAI_API_KEY).	
-- requirements.txt con las dependencias.
-- El proyecto debe correr con un solo comando luego de instalar dependencias.
-- Respuestas HTTP apropiadas ante inputs inesperados.
+X README.md con instrucciones claras para instalar y correr el proyecto localmente.
+X Archivo .env.example con las variables necesarias (ej: OPENAI_API_KEY).	
+X requirements.txt con las dependencias.
+X El proyecto debe correr con un solo comando luego de instalar dependencias.
+X Respuestas HTTP apropiadas ante inputs inesperados.

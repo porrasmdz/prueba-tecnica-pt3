@@ -1,5 +1,6 @@
-# api.py
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import Optional
 from agent.context import Context
@@ -15,6 +16,37 @@ class ChatResponse(BaseModel):
     response: str
     is_final: bool
     summary: Optional[str] = None
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    return JSONResponse(
+        status_code=400,
+        content={
+            "status": 400,
+            "error": "Input inválido",
+            "message": "Por favor envía un JSON con 'session_id' y 'message' ambos como texto no vacío."
+        },
+    )
+@app.exception_handler(ValueError)
+async def value_error_handler(request: Request, exc: ValueError):
+    return JSONResponse(
+        status_code=400,
+        content={
+            "status": 400,
+            "error": "Error en la solicitud",
+            "message": str(exc)
+        },
+    )
+@app.exception_handler(Exception)
+async def generic_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={
+            "status": 500,
+            "error": "Error interno del servidor",
+            "message": "Ocurrió un error inesperado. Intenta nuevamente más tarde."
+        },
+    )
 
 @app.post("/chat", response_model=ChatResponse)
 def chat(req: ChatRequest):

@@ -1,0 +1,23 @@
+# Ignorar entorno virtual local
+venv/
+.env
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos temporales / IDE
+*.log
+*.sqlite3
+*.db
+*.swp
+.DS_Store
+.idea/
+.vscode/
+
+# Node / frontend si hubiera
+node_modules/
+
+# Otros archivos grandes que no quieras subir
+*.zip
+*.tar
+*.tmp
